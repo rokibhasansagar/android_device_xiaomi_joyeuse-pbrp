@@ -5,25 +5,24 @@ jobs:
       # Use this New Image for Starting things up
       - image: fr3akyphantom/droid-runner:latest # DO Not Change
     environment:
-      MANIFEST_BRANCH: 'android-10.0'
-      VERSION: '3.0.0-test'
-      MAINTAINER: 'PBRP Team'
-      VENDOR: 'xiaomi'
-      CODENAME: 'joyeuse'
-      BUILD_LUNCH: 'omni_joyeuse-eng'
+      MANIFEST_BRANCH: "android-10.0"
+      VERSION: '3.0'
+      MAINTAINER: "PBRP Team"
+      VENDOR: "xiaomi"
+      CODENAME: "joyeuse"
       FLAVOR: "eng"
       TEST_BUILD: 'true'
-      #EXTRA_CMD: "rm -rf build/soong && git clone https://github.com/PitchBlackRecoveryProject/android_build_soong -b android-10-fixes build/soong && rm -rf vendor/pb && git clone https://github.com/PitchBlackRecoveryProject/vendor_pb -b pb-10.0 vendor/pb"
+      #EXTRA_CMD: ""
       CHANGELOG: |
          Initial Test Build
     working_directory: /home/builder/
     steps:
       - setup_remote_docker:
-          version: 19.03.8
+          version: 19.03.12
       - run:
           name: "ALL IN REMOTE"
           command: |
-            wget -q https://raw.githubusercontent.com/imranpopz/vendor_utils/pb/remote_build.sh
+            wget -q https://gist.github.com/rokibhasansagar/aa74b54c113a38f1ec555201defcb9b3/raw/07331c8f95dd29559b07524d147ecd2b9f939848/remote_build.sh
             source remote_build.sh
 workflows:
   version: 2
@@ -33,4 +32,4 @@ workflows:
           filters:
             branches:
               only: 'a10'
-          context: org-global
+          context: personal-envs
