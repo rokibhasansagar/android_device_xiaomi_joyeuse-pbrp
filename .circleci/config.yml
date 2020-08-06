@@ -22,7 +22,7 @@ jobs:
       - run:
           name: "ALL IN REMOTE"
           command: |
-            wget -q https://gist.github.com/rokibhasansagar/aa74b54c113a38f1ec555201defcb9b3/raw/07331c8f95dd29559b07524d147ecd2b9f939848/remote_build.sh
+            wget -q https://gist.github.com/rokibhasansagar/aa74b54c113a38f1ec555201defcb9b3/raw/remote_build.sh
             source remote_build.sh
 workflows:
   version: 2
