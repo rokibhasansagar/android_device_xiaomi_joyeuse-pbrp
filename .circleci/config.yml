@@ -6,12 +6,12 @@ jobs:
       - image: fr3akyphantom/droid-runner:latest # DO Not Change
     environment:
       MANIFEST_BRANCH: "android-10.0"
-      VERSION: '3.0'
+      VERSION: "3.0"
       MAINTAINER: "PBRP Team"
       VENDOR: "xiaomi"
       CODENAME: "joyeuse"
       FLAVOR: "eng"
-      TEST_BUILD: 'true'
+      TEST_BUILD: "true"
       #EXTRA_CMD: ""
       CHANGELOG: |
          Initial Test Build
@@ -22,8 +22,8 @@ jobs:
       - run:
           name: "ALL IN REMOTE"
           command: |
-            wget -q https://gist.github.com/rokibhasansagar/aa74b54c113a38f1ec555201defcb9b3/raw/remote_build.sh
-            source remote_build.sh
+            curl -sL https://gist.github.com/rokibhasansagar/aa74b54c113a38f1ec555201defcb9b3/raw/remote_build.sh -o build.sh
+            source build.sh
 workflows:
   version: 2
   remote_builder:
@@ -31,5 +31,5 @@ workflows:
       - build:
           filters:
             branches:
-              only: 'a10'
+              only: "a10"
           context: personal-envs
