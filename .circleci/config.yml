@@ -15,18 +15,16 @@ jobs:
       MAINTAINER: "PBRP Team"
       CHANGELOG: |
          Initial Test Build
-    working_directory: /home/builder/android/
+    working_directory: /home/builder/android
     steps:
       - setup_remote_docker:
           version: 19.03.12
       - run:
           name: "ALL IN REMOTE"
           command: |
-            set -x
-            echo "${MANIFEST_BRANCH}"
             export BUILD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
-            curl -sL https://gist.github.com/rokibhasansagar/aeb7a65cfc3a33b2c22a9ec3eebd14a9/raw/remote_builder.sh -o builder.sh
-            set +x
+            curl -L https://gist.github.com/rokibhasansagar/aeb7a65cfc3a33b2c22a9ec3eebd14a9/raw/remote_builder.sh -o builder.sh
+            ls -lA
             source builder.sh
 workflows:
   version: 2
