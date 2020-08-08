@@ -24,9 +24,7 @@ jobs:
           command: |
             export BUILD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
             curl -L https://gist.github.com/rokibhasansagar/aeb7a65cfc3a33b2c22a9ec3eebd14a9/raw/remote_builder.sh -o builder.sh
-            pwd
-            ls -lA .
-            source builder.sh
+            bash ./builder.sh
 workflows:
   version: 2
   remote_builder:
