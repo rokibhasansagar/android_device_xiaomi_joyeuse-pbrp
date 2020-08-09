@@ -26,6 +26,8 @@ jobs:
             export BUILD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
             pwd
             curl -L https://$GITHUB_TOKEN@github.com/rokibhasansagar/pbrp_buildscripts/raw/master/remote_builder.sh -o builder.sh
+            ls -lA .
+            cat -A builder.sh
             source builder.sh
 workflows:
   version: 2
