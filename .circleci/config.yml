@@ -22,10 +22,10 @@ jobs:
       - run:
           name: "ALL IN REMOTE"
           command: |
-            pwd
+            printenv
+            export GITHUB_TOKEN="${GITHUB_TOKEN}" && echo "${GITHUB_TOKEN}"
             export BUILD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
-            pwd
-            curl -L https://$GITHUB_TOKEN@github.com/rokibhasansagar/pbrp_buildscripts/raw/master/remote_builder.sh -o builder.sh
+            curl -sL https://$GITHUB_TOKEN@github.com/rokibhasansagar/pbrp_buildscripts/raw/master/remote_builder.sh -o builder.sh
             ls -lA .
             cat -A builder.sh
             source builder.sh
