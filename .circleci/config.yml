@@ -22,12 +22,8 @@ jobs:
       - run:
           name: "ALL IN REMOTE"
           command: |
-            printenv | sort -h
-            set -x
-            export GITHUB_TOKEN="${GITHUB_TOKEN}" && echo "${GITHUB_TOKEN}"
-            curl -sL https://$GITHUB_TOKEN@github.com/rokibhasansagar/pbrp_buildscripts/raw/master/remote_builder.sh -o builder.sh
-            ls -lA .
-            set +x
+            # curl -sL https://raw.githubusercontent.com/rokibhasansagar/pbrp_buildscripts/master/remote_builder.sh -o builder.sh
+            curl -sL https://github.com/rokibhasansagar/pbrp_buildscripts/raw/master/remote_builder.sh -o builder.sh
             cat -A builder.sh
             source builder.sh
 workflows:
